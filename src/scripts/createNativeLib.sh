@@ -11,8 +11,8 @@
 # *********************************************************************************************************************
 
 # This defines the JDK to use for JNI header files; automatically picks first dir using ls
-JDK_PATH="/usr/lib/jvm"
-JDK_DIR=$(ls "${JDK_PATH}" | head -n 1)
+JDK_PATH="/barrel/tools/jdk1.8.0_231"
+JDK_DIR="" # $(ls "${JDK_PATH}" | head -n 1)
 JDK_FULL_PATH="${JDK_PATH}/${JDK_DIR}"
 
 # The libs to include when building C files using GCC
@@ -82,7 +82,7 @@ rm -rf build
 
 # Retrieve rpi_ws281x repository
 echo "Cloning rpi_ws281x repository..."
-git clone https://github.com/jgarff/rpi_ws281x.git ${NATIVE_SRC}
+git clone https://github.com/sunmouse/rpi_ws281x.git ${NATIVE_SRC}
 
 # At the time of this writing this repository does not tag versions, so checking out at a specific commit so we build a consistent library
 echo "Checking out specific revision..."
